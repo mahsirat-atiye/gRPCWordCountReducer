@@ -1,0 +1,23 @@
+syntax = "proto3";
+package driver;
+import "google/protobuf/struct.proto";
+option go_package = "pb;driver";
+
+message TaskRequest {
+  string body = 1;
+}
+message TaskSubmit {
+  bool  readyForNextTask = 1;
+  int32 taskId = 2;
+}
+message Response {
+  bool available = 1;
+  google.protobuf.Struct Task = 2;
+
+
+
+}
+service ManageTaskPool {
+  rpc AssignTaskToWorker(TaskRequest) returns (Response) {}
+  rpc AdmissionOfTask(TaskSubmit) returns (Response){}
+}
