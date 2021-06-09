@@ -12,8 +12,9 @@ message TaskSubmit {
 }
 message Response {
   bool available = 1;
-  google.protobuf.Struct Task = 2;
-
+  string taskId = 2; // By an id type of task and inx of task are recognized
+  repeated string inputPath = 3;
+  repeated string outputPath = 4;
 
 
 }
