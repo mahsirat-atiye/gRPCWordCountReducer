@@ -5,7 +5,14 @@ A distributed map reduce program to do word count with gRPC (https://grpc.io) on
 you can start driver program, and then open a few more terminal windows, and start more
 worker program, when it finished, you should see output files containing the frequency of each work in the input
 files.
-
+### Run driver
+```bigquery
+go run driver.go
+```
+### Run worker
+```bigquery
+go run worker.go mapper_reducer.go
+```
 ## Set protocol buffers
 I used protocol buffers for ManageTaskPool microservice
 
@@ -31,5 +38,14 @@ I used protocol buffers for ManageTaskPool microservice
 ### Note
 You can change these settings in `worker_driver/config.go` file.
 ## Architecture
+A map reducer system, where each map or reduce task is done using map reduce methodology
 
-![Architecture](https://github.com/mahsirat-atiye/map-reduce-grpc/blob/master/documents/grpc_wc.png)
+- step1: Driver separates whole task of word counting into some map tasks and reduce tasks to speed up and use available separate computers in different locations.
+- step2: A specific map/reduce task is assigned to one and only one worker.
+- step3: Worker process the map task using *map reduce methodology* to speed up and use all 8 cores of its system.
+- step4: Worker process the reduce task using *map reduce methodology* to speed up and use all 8 cores of its system.
+
+![gRPC based word counter Architecture](https://github.com/mahsirat-atiye/map-reduce-grpc/blob/master/documents/grpc_wc.png)
+
+
+##Protocol and microservices
