@@ -31,3 +31,5 @@ I used protocol buffers for ManageTaskPool microservice
 ### Note
 You can change these settings in `worker_driver/config.go` file.
 ## Architecture
+
+![Architecture](https://github.com/mahsirat-atiye/map-reduce-grpc/blob/master/documents/grpc_wc.png)
