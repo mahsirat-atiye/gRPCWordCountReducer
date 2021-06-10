@@ -48,4 +48,7 @@ A map reducer system, where each map or reduce task is done using map reduce met
 ![gRPC based word counter Architecture](https://github.com/mahsirat-atiye/map-reduce-grpc/blob/master/documents/grpc_wc.png)
 
 
-##Protocol and microservices
+## Protocol and microservices
+You can find about protocols and end points in *ManageTaskPool microservice* in the following diagram.
+![Workflow diagram](https://github.com/mahsirat-atiye/map-reduce-grpc/blob/master/documents/grpc_wc_digram.png)
+Symbols follow BPM standards.
