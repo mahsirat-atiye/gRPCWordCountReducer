@@ -1,0 +1,30 @@
+syntax = "proto3";
+package driver;
+import "google/protobuf/struct.proto";
+
+option go_package = "pb;worker_driver";
+
+message TaskSubmissionRequest {
+  string donTaskType =1;
+  int32 doneTaskIdx = 2;
+}
+message TaskAdmissionResponse{
+  string status = 1;
+}
+
+message TaskAssigningRequest{
+  bool ready = 1;
+}
+
+message TaskAssigningResponse {
+  string status = 1;
+  string taskType =2;
+  int32 taskIdx = 3;
+  int32 numOfComplementaryTasks =4;
+  repeated string targetInputFiles = 5;
+
+}
+service ManageTaskPool {
+  rpc AssignTaskToWorker(TaskAssigningRequest) returns (TaskAssigningResponse) {}
+  rpc AdmitTaskDoneByWorker(TaskSubmissionRequest) returns (TaskAdmissionResponse){}
+}

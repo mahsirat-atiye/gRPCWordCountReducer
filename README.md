@@ -8,7 +8,14 @@ files.
 
 ## Setup project
 ```bigquery
-go get -u github.com/golang/protobuf/protoc-gen-go
+ go get -u github.com/golang/protobuf/protoc-gen-go
+```
+I used protocol buffers for ManageTaskPool microservice
+```bigquery
+ protoc --go_out=paths=source_relative:worker_driver -I. worker_driver.proto
+```
+```bigquery
+ protoc --go-grpc_out=paths=source_relative:worker_driver -I. worker_driver.proto
 ```
 
 ## Assumptions
