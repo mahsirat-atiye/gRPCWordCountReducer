@@ -6,11 +6,12 @@ you can start driver program, and then open a few more terminal windows, and sta
 worker program, when it finished, you should see output files containing the frequency of each work in the input
 files.
 
-## Setup project
+## Set protocol buffers
+I used protocol buffers for ManageTaskPool microservice
+
 ```bigquery
  go get -u github.com/golang/protobuf/protoc-gen-go
 ```
-I used protocol buffers for ManageTaskPool microservice
 ```bigquery
  protoc --go_out=paths=source_relative:worker_driver -I. worker_driver.proto
 ```
@@ -28,4 +29,5 @@ I used protocol buffers for ManageTaskPool microservice
 - Default number of reduce tasks is 4
 
 ### Note
-You can change these in `config.go` file.
+You can change these settings in `worker_driver/config.go` file.
+## Architecture
